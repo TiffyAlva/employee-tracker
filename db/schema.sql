@@ -11,7 +11,7 @@ CREATE TABLE roles(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100),
     salary DECIMAL,
-    deptId INTEGER,
+    deptId INTEGER
     
 );
 
@@ -20,6 +20,6 @@ CREATE TABLE employees(
     firstName VARCHAR(30),
     lastName VARCHAR(30),
     roleId INTEGER,
-    managerId INTEGER,
+    managerId INTEGER
    
 );
