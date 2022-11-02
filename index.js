@@ -8,7 +8,7 @@ const db = mysql.createConnection({
     user: "root",
     password: "Addicted93!",
     database: "employee_db1"
-})
+}) 
 
 function askAction () {
     inquirer.prompt([
@@ -74,9 +74,28 @@ function viewAllDepartments() {
 }
 
 // function for viewAllRoles
+function viewAllRoles() {
+    db.query("SELECT * FROM ROLES;", (err, data) => {
+        if (err) {
+            console.log(err)
+        }
+
+        console.table(data);
+        askAction();
+    }) 
+}
 
 
 // function for viewAllEmployees
+function viewAllEmployees() {
+    db.query("SELECT * FROM EMPLOYEES;", (err, data) => {
+        if (err) {
+            console.log(err)
+        }
+
+        console.table();
+    })
+}
 
 
 
