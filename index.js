@@ -57,6 +57,7 @@ function askAction () {
             }
             else if (answer.Action == "update an employee role") {
                 // console.log("update an employee role")
+                updateEmployeeRole()
 
 
             } else {
@@ -234,39 +235,53 @@ function addEmployee () {
 
 //function update employee role
 function updateEmployeeRole () {
+    db.roleQuery().then(([rows]) => {
+        const roles = rows.map(({ id, title }) => ({ name: title, value: id }))
+
+        db.fullNameQuery().then(([rows]) => {
+            const empNameList = rows.map(({ id, firstName, lastName }) => ({ name: firstName + " " + lastName, value: id }));
+    
     inquirer.prompt([
         {
-            type: "input",
+            type: "list",
             message: "Which employee would you like to update?",
-            name: "name_list"
+            name: "EmpNameRoleUpdate",
+            choices: empNameList 
         },
 
         {
-            type: "input",
+            type: "list",
             message: "Choose the role ID to assign to employer",
-            name: "roles"
+            name: "roleUpdate",
+            choice: roles
         }
 
        
     ])
-    .then((answer) => {
-        console.log(answer);
+    .then((res) => {
+        db.updateEmployeeRole(res)
+            .then(() => {
+                console.log("New role successfully added!")
 
-        db.query("INSERT INTO employees (name, roles) VALUES (?, ?,)", [answer.name_list, answer.roles ], (err, data) => {
-            if(err) {
-                console.log(err)
-            } else {
-                console.log("New role successfully added!");
-                askAction()
-            }
-        })
+            })
 
-    })
-}
+            
+                
+            
+//     .then((answer) => {
+//         console.log(answer);
 
+//         db.query("INSERT INTO employees (name, roles) VALUES (?, ?,)", [answer.name_list, answer.roles ], (err, data) => {
+//             if(err) {
+//                 console.log(err)
+//             } else {
+//                 console.log("New role successfully added!");
+//                 askAction()
+//             }
+//         })
 
+//     })
+// } 
 
-
-
-
+            
 askAction()
