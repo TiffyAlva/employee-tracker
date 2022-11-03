@@ -35,20 +35,25 @@ function askAction () {
                 viewAllDepartments()
             }
             else if (answer.Action == "view all roles") {
-                console.log("view all roles")
+                // console.log("view all roles")
+                viewAllRoles()
             }
             else if (answer.Action == "view all employees") {
-                console.log("view all employees")
+                // console.log("view all employees")
+                viewAllEmployees()
             }
             else if (answer.Action == "add a department") {
                 // console.log("add  department")
                 addDepartment()
             }
             else if (answer.Action == "add a role") {
-                console.log("add a role")
+                // console.log("add a role")
+                addRole()
             }
             else if (answer.Action == "add an employee") {
-                console.log("add an employee")
+                // console.log("add an employee")
+                addEmployee()
+
             }
             else if (answer.Action == "update an employee role") {
                 console.log("update an employee role")
@@ -75,7 +80,7 @@ function viewAllDepartments() {
 
 // function for viewAllRoles
 function viewAllRoles() {
-    db.query("SELECT * FROM ROLES;", (err, data) => {
+    db.query("SELECT * FROM roles;", (err, data) => {
         if (err) {
             console.log(err)
         }
@@ -88,7 +93,7 @@ function viewAllRoles() {
 
 // function for viewAllEmployees
 function viewAllEmployees() {
-    db.query("SELECT * FROM EMPLOYEES;", (err, data) => {
+    db.query("SELECT * FROM employees;", (err, data) => {
         if (err) {
             console.log(err)
         }
@@ -129,10 +134,102 @@ function addDepartment () {
 }
 
 // function for addRole
+function addRole () {
+    inquirer.prompt([
+    //   {  
+    //     type: "input",
+    //     message: "What is the id of this role?",
+    //     name: "role_id"
+    //   },
+      
+      {
+        type: "input",
+        message: "What is the title of this role?",
+        name: "role_title"
+      },
+
+      {
+        type: "input",
+        message: "What is the salary of this role?",
+        name: "role_salary"
+      },
+
+      {
+        type: "input",
+        message: "Which department does the role belong to?",
+        name: "role_id"
+      }
+
+     
+    ])
+    .then((answer) => {
+        console.log(answer);
+
+        db.query("INSERT INTO roles (title, salary, id) VALUES (?, ?, ?)", [answer.role_title, answer.role_salary, answer.role_Id], (err, data) => {
+            if(err) {
+                console.log(err)
+            } else {
+                console.log("Successfully added new role!");
+                askAction()
+            }
+        })
+
+    })
+}
+
+
 
 
 
 //function for addEmployee
+function addEmployee () {
+    inquirer.prompt([
+        // {
+        //     type: "input",
+        //     message: "What is the id of this employee?",
+        //     name: "employee_id"
+        // },
+
+        {
+            type: "input",
+            message: "What is the employee's first name?",
+            name: "employee_name"
+        },
+
+        {
+            type: "input",
+            message: "What is the employee's last name?",
+            name: "employee_lastname"
+        },
+
+        {
+            type: "input",
+            message: "What is the employee's role?",
+            name: "employee_role"
+        },
+        
+        {
+            type: "input",
+            message: "What is the employee's manager?",
+            name: "employee_manager"
+        }
+    ])
+    .then((answer) => {
+        console.log(answer);
+
+        db.query("INSERT INTO employees (first name, last name, role id, manager id) VALUES (?, ?, ?, ?)", [answer.employee_name, answer.employee_lastname, answer.employee_role, answer.employess_manager], (err, data) => {
+            if(err) {
+                console.log(err)
+            } else {
+                console.log("Successfully added new employee!");
+                askAction()
+            }
+        })
+
+    })
+}
+
+//add update employee?
 
 
 
