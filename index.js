@@ -247,23 +247,7 @@ function updateEmployeeRole () {
             name: "roles"
         }
 
-        // {
-        //     type: "input",
-        //     message: "What is the employee's last name?",
-        //     name: "employee_lastname"
-        // },
-
-        // {
-        //     type: "input",
-        //     message: "What is the employee's role?",
-        //     name: "employee_role"
-        // },
-        
-        // {
-        //     type: "input",
-        //     message: "What is the employee's manager?",
-        //     name: "employee_manager"
-        // }
+       
     ])
     .then((answer) => {
         console.log(answer);
