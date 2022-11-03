@@ -56,7 +56,9 @@ function askAction () {
 
             }
             else if (answer.Action == "update an employee role") {
-                console.log("update an employee role")
+                // console.log("update an employee role")
+
+
             } else {
                 process.exit(1);
             }
@@ -229,7 +231,55 @@ function addEmployee () {
     })
 }
 
-//add update employee?
+
+//function update employee role
+function updateEmployeeRole () {
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "Which employee would you like to update?",
+            name: "name_list"
+        },
+
+        {
+            type: "input",
+            message: "Choose the role ID to assign to employer",
+            name: "roles"
+        }
+
+        // {
+        //     type: "input",
+        //     message: "What is the employee's last name?",
+        //     name: "employee_lastname"
+        // },
+
+        // {
+        //     type: "input",
+        //     message: "What is the employee's role?",
+        //     name: "employee_role"
+        // },
+        
+        // {
+        //     type: "input",
+        //     message: "What is the employee's manager?",
+        //     name: "employee_manager"
+        // }
+    ])
+    .then((answer) => {
+        console.log(answer);
+
+        db.query("INSERT INTO employees (name, roles) VALUES (?, ?,)", [answer.name_list, answer.roles ], (err, data) => {
+            if(err) {
+                console.log(err)
+            } else {
+                console.log("New role successfully added!");
+                askAction()
+            }
+        })
+
+    })
+}
+
 
 
 
