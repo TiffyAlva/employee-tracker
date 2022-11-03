@@ -234,36 +234,46 @@ function addEmployee () {
 
 
 //function update employee role
-function updateEmployeeRole () {
-    db.roleQuery().then(([rows]) => {
-        const roles = rows.map(({ id, title }) => ({ name: title, value: id }))
+// function updateEmployeeRole () {
+//     db.roleQuery().then(([rows]) => {
+//         const roles = rows.map(({ id, title }) => ({ name: title, value: id }))
 
-        db.fullNameQuery().then(([rows]) => {
-            const empNameList = rows.map(({ id, firstName, lastName }) => ({ name: firstName + " " + lastName, value: id }));
+//         db.fullNameQuery().then(([rows]) => {
+//             const empNameList = rows.map(({ id, firstName, lastName }) => ({ name: firstName + " " + lastName, value: id }));
     
-    inquirer.prompt([
-        {
-            type: "list",
-            message: "Which employee would you like to update?",
-            name: "EmpNameRoleUpdate",
-            choices: empNameList 
-        },
+//     inquirer.prompt([
+//         {
+//             type: "list",
+//             message: "Which employee would you like to update?",
+//             name: "EmpNameRoleUpdate",
+//             choices: empNameList 
+//         },
 
-        {
-            type: "list",
-            message: "Choose the role ID to assign to employer",
-            name: "roleUpdate",
-            choice: roles
-        }
+//         {
+//             type: "list",
+//             message: "Choose the role ID to assign to employer",
+//             name: "roleUpdate",
+//             choice: roles
+//         }
 
        
-    ])
-    .then((res) => {
-        db.updateEmployeeRole(res)
-            .then(() => {
-                console.log("New role successfully added!")
+//     ])
+//     .then((res) => {
+//         db.updateEmployeeRole(res)
+//             .then(() => {
+//                 console.log("New role successfully added!")
 
-            })
+//             })
+
+//             })
+
+//             });
+
+//         })
+
+//     }
+
+        
 
             
                 
