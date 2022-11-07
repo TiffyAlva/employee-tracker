@@ -11,6 +11,8 @@
 ## Table of Contents:
 * [Description](#description)
 * [Summary](#summary)
+* [Tools Used](#tools-used)
+* [Visuals](#visuals)
 * [Installation and Database Setup](#installation-and-database-setup)
 * [Usage](#usage)
 * [License](#license)
@@ -18,6 +20,15 @@
 * [Tests](#tests)
 * [Contact Informations](#contact-informations)
 * [Demo](#demo)
+
+## Visuals:
+
+
+## Tools Used:
+- JavaScript
+- Node.js
+- Inquirer
+- MySQL
 
 
 ## Installation and Database Setup:
