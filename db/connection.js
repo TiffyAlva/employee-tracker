@@ -4,3 +4,4 @@ const db = mysql.createConnection({
     password: "Addicted93!",
     database: "employee_db1"
 })
+

@@ -58,14 +58,33 @@ function askAction () {
             else if (answer.Action == "update an employee role") {
                 // console.log("update an employee role")
                 updateEmployeeRole()
-
+                
 
             } else {
                 process.exit(1);
+
             }
-    
+            
+            
+
         })
-}
+
+    }
+          
+
+
+            
+
+            
+           
+            
+
+        
+            
+          
+            
+            
+    
 
 
 function viewAllDepartments() {
