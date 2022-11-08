@@ -216,7 +216,7 @@ function addEmployee () {
         {
             type: "input",
             message: "What is the employee's first name?",
-            name: "employee_name"
+            name: "employee_firstname"
         },
 
         {
@@ -240,7 +240,7 @@ function addEmployee () {
     .then((answer) => {
         console.log(answer);
 
-        db.query("INSERT INTO employees (first name, last name, role id, manager id) VALUES (?, ?, ?, ?)", [answer.employee_name, answer.employee_lastname, answer.employee_role, answer.employees_manager], (err, data) => {
+        db.query("INSERT INTO employees (firstname, lastname, role id, manager id) VALUES (?, ?, ?, ?)", [answer.employee_firstname, answer.employee_lastname, answer.employee_role, answer.employee_manager], (err, data) => {
             if(err) {
                 console.log(err)
             } else {
