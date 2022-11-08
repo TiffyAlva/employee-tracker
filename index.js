@@ -120,7 +120,8 @@ function viewAllEmployees() {
             console.log(err)
         }
 
-        console.table();
+        console.table(data);
+        askAction();
     })
 }
 
@@ -239,7 +240,7 @@ function addEmployee () {
     .then((answer) => {
         console.log(answer);
 
-        db.query("INSERT INTO employees (first name, last name, role id, manager id) VALUES (?, ?, ?, ?)", [answer.employee_name, answer.employee_lastname, answer.employee_role, answer.employess_manager], (err, data) => {
+        db.query("INSERT INTO employees (first name, last name, role id, manager id) VALUES (?, ?, ?, ?)", [answer.employee_name, answer.employee_lastname, answer.employee_role, answer.employees_manager], (err, data) => {
             if(err) {
                 console.log(err)
             } else {
@@ -252,65 +253,47 @@ function addEmployee () {
 }
 
 
-//function update employee role
-// function updateEmployeeRole () {
-//     db.roleQuery().then(([rows]) => {
-//         const roles = rows.map(({ id, title }) => ({ name: title, value: id }))
+// function update employee role
+function updateEmployeeRole () {
+    db.promise().query("SELECT * from roles").then(([rows]) => {
+        const roles = rows.map(({ id, title }) => ({ name: title, value: id }))
 
-//         db.fullNameQuery().then(([rows]) => {
-//             const empNameList = rows.map(({ id, firstName, lastName }) => ({ name: firstName + " " + lastName, value: id }));
+        db.promise().query("SELECT * from employees").then(([rows]) => {
+            const empNameList = rows.map(({ id, firstName, lastName }) => ({ name: firstName + " " + lastName, value: id }));
     
-//     inquirer.prompt([
-//         {
-//             type: "list",
-//             message: "Which employee would you like to update?",
-//             name: "EmpNameRoleUpdate",
-//             choices: empNameList 
-//         },
+    inquirer.prompt([
+        {
+            type: "list",
+            message: "Which employee would you like to update?",
+            name: "EmpNameRoleUpdate",
+            choices: empNameList 
+        },
 
-//         {
-//             type: "list",
-//             message: "Choose the role ID to assign to employer",
-//             name: "roleUpdate",
-//             choice: roles
-//         }
+        {
+            type: "list",
+            message: "Choose the role ID to assign to employer",
+            name: "roleUpdate",
+            choices: roles
+        }
 
        
-//     ])
-//     .then((res) => {
-//         db.updateEmployeeRole(res)
-//             .then(() => {
-//                 console.log("New role successfully added!")
+    ])
+    .then((res) => {
+        db.promise().query("UPDATE employees SET roleId = ? WHERE id = ?", [res.roleUpdate, res.EmpNameRoleUpdate])
+            .then(() => {
+                console.log("New role successfully added!")
+                askAction()
 
-//             })
+            })
 
-//             })
+            })
 
-//             });
+            });
 
-//         })
+        })
 
-//     }
+    }
 
-        
-
-            
-                
-            
-//     .then((answer) => {
-//         console.log(answer);
-
-//         db.query("INSERT INTO employees (name, roles) VALUES (?, ?,)", [answer.name_list, answer.roles ], (err, data) => {
-//             if(err) {
-//                 console.log(err)
-//             } else {
-//                 console.log("New role successfully added!");
-//                 askAction()
-//             }
-//         })
-
-//     })
-// } 
-
+    
             
 askAction()
