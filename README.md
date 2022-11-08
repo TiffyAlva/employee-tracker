@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Description:
-- This application allows users to view, add, update, and remove employees using MySQL, Node.js, and JavaScript.
+- This application allows users to view, add, and update employees using MySQL, Node.js, and JavaScript.
 
 ## Summary:
 - Create an Employee Tracker generator using JavaScript, Node.js, Inquirer and MySQL.

@@ -226,21 +226,23 @@ function addEmployee () {
         },
 
         {
-            type: "input",
+            type: "list",
             message: "What is the employee's role?",
-            name: "employee_role"
+            name: "employee_role",
+            choices: roles
         },
         
         {
-            type: "input",
+            type: "list",
             message: "What is the employee's manager?",
-            name: "employee_manager"
+            name: "employee_manager",
+            choices: manager
         }
     ])
     .then((answer) => {
         console.log(answer);
 
-        db.query("INSERT INTO employees (firstname, lastname, role id, manager id) VALUES (?, ?, ?, ?)", [answer.employee_firstname, answer.employee_lastname, answer.employee_role, answer.employee_manager], (err, data) => {
+        db.query("INSERT INTO employees (firstname, lastname, roleId, managerId) VALUES (?, ?, ?, ?)", [answer.employee_firstname, answer.employee_lastname, answer.employee_role, answer.employee_manager], (err, data) => {
             if(err) {
                 console.log(err)
             } else {
