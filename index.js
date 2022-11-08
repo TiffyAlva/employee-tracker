@@ -183,6 +183,12 @@ function addRole () {
         type: "input",
         message: "Which department does the role belong to?",
         name: "role_id",
+        choice: 
+        [{value:1, name: 'Sales'},
+        {value:2, name: 'Engineering'},
+        {value:3, name: 'Finance'},
+        {value:4, name: 'Legal'}
+]
   
       }
 
@@ -312,6 +318,16 @@ function updateEmployeeRole () {
 
     }
 
+
+    //Add function for Delete departments, roles, and employees 
+//     let deletedRow = 2;
+
+// db.query(`DELETE FROM department WHERE id = ?` (err, result) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log(result);
+// });
     
             
 askAction()
