@@ -168,19 +168,22 @@ function addRole () {
       {
         type: "input",
         message: "What is the title of this role?",
-        name: "role_title"
+        name: "role_title",
+      
       },
 
       {
         type: "input",
         message: "What is the salary of this role?",
-        name: "role_salary"
+        name: "role_salary",
+     
       },
 
       {
         type: "input",
         message: "Which department does the role belong to?",
-        name: "role_id"
+        name: "role_id",
+  
       }
 
      
@@ -229,14 +232,27 @@ function addEmployee () {
             type: "list",
             message: "What is the employee's role?",
             name: "employee_role",
-            choices: roles
+            choices: 
+            [{value:1, name:'Sales lead'},
+            {value:2, name:'Salesperson'},
+            {value:3, name:'Lead Engineer'},
+            {value:4, name:'Software Engineer'},
+            {value:5, name: 'Accountant'},
+            {value:6, name: 'Legal Team Lead'},
+            {value:7, name: 'Lawyer'}
+        ],
         },
         
         {
             type: "list",
             message: "What is the employee's manager?",
             name: "employee_manager",
-            choices: manager
+            choices: [
+                {value:1, name:'Jane Doe'},
+                {value:3, name:'Michelle Gonzalez'},
+                {value:5, name:'Mike Curly'},
+                {value:7, name: 'Jose Alvarez'}
+            ]
         }
     ])
     .then((answer) => {
