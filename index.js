@@ -115,7 +115,7 @@ function viewAllRoles() {
 
 // function for viewAllEmployees
 function viewAllEmployees() {
-    db.query("SELECT * FROM employees LEFT JOIN roles ON employees.roleId = roles.id, ", (err, data) => {
+    db.query("SELECT * FROM employees LEFT JOIN roles ON employees.roleId = roles.id" (err, data) => {
         if (err) {
             console.log(err)
         }
