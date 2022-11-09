@@ -22,6 +22,8 @@
 * [Demo](#demo)
 
 ## Visuals:
+![](./MockUp.jpg)
+
 
 
 ## Tools Used:
@@ -58,7 +60,7 @@
 * Email: <a href="malito:TiffanyAlvarez54@gmail.com">TiffanyAlvarez54@gmail.com
 
 ## Demo:
-Demostration Video
+- <a href= "https://drive.google.com/file/d/1S1xIp2N9fyFjVM-QXlITTH5aFEQVLDM0/view?usp=sharing">Demostration Video</a>
 
 
 
