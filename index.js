@@ -43,7 +43,7 @@ function askAction () {
                 viewAllEmployees()
             }
             else if (answer.Action == "add a department") {
-                // console.log("add  department")
+                // console.log("add department")
                 addDepartment()
             }
             else if (answer.Action == "add a role") {
@@ -115,7 +115,7 @@ function viewAllRoles() {
 
 // function for viewAllEmployees
 function viewAllEmployees() {
-    db.query("SELECT * FROM employees;", (err, data) => {
+    db.query("SELECT * FROM employees LEFT JOIN roles ON employees.roleId = roles.id, ", (err, data) => {
         if (err) {
             console.log(err)
         }
@@ -124,6 +124,9 @@ function viewAllEmployees() {
         askAction();
     })
 }
+
+
+
 
 
 
@@ -322,7 +325,7 @@ function updateEmployeeRole () {
     //Add function for Delete departments, roles, and employees 
 //     let deletedRow = 2;
 
-// db.query(`DELETE FROM department WHERE id = ?` (err, result) => {
+// db.query(`DELETE FROM employee WHERE (firstName= ?) AND (lastName = ?') (err, result) => {
 //   if (err) {
 //     console.log(err);
 //   }
