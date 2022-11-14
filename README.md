@@ -22,7 +22,11 @@
 * [Demo](#demo)
 
 ## Visuals:
-![](./MockUp.jpg)
+ ![](./MockUp.jpg)
+
+ ![](./project1.jpg)
+
+
 
 
 
