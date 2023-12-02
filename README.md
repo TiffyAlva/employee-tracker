@@ -59,7 +59,7 @@
 
 ## Contact Informations:
 * GitHub Username: <a href="https://github.com/TiffyAlva">TiffyAlva</a>
-* Email: <a href="malito:TiffanyAlvarez54@gmail.com">TiffanyAlvarez54@gmail.com
+* Email: <a href="malito:TiffanyAlvarezDeveloper@gmail.com">TiffanyAlvarez54@gmail.com
 
 ## Demo:
 - <a href= "https://drive.google.com/file/d/1S1xIp2N9fyFjVM-QXlITTH5aFEQVLDM0/view?usp=sharing">Demostration Video</a>
